@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/add_water_content"
+    android:gravity="center_horizontal">
+
+
+  <LinearLayout
+      android:layout_width="wrap_content"
+      android:orientation="horizontal"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="40dp"
+      android:layout_marginLeft="40dp"
+      android:layout_marginBottom="20dp"
+      android:layout_marginTop="40dp">
+
+      <ImageView
+          android:layout_width="40dp"
+          android:layout_height="40dp"
+          android:id="@+id/add_water_img"
+          android:layout_above="@+id/add_water_bar"
+          android:layout_centerHorizontal="true"
+          android:src="@drawable/water_drop"
+          android:layout_gravity="center" />
+
+      <EditText
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:inputType="number"
+          android:id="@+id/mlvalue"
+          android:numeric="integer"
+          android:maxLength="4"
+          android:textSize="20sp"
+          android:layout_gravity="center_vertical" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="ml"
+          android:id="@+id/txtML"
+          android:textSize="20sp"
+          android:layout_gravity="center_vertical" />
+
+
+  </LinearLayout>
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_water_bar"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/action_drink_water"
+        android:layout_centerInParent="true"
+        android:splitTrack="false"
+        android:max="100"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+
+</LinearLayout>
