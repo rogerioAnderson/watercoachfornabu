@@ -17,15 +17,13 @@ import android.widget.TimePicker;
 
 import com.coded2.nabuwatercoach.R;
 
-/**
- * Created by Rogerio on 19/05/2015.
- */
+
 public class CustomNumberPreference extends DialogPreference{
 
     private static final String NAMESPACE = "http://schemas.android.com/com.coded2";
     private static final String MIN_VALUE_ATTR_NAME = "minValue";
     private static final String MAX_VALUE_ATTR_NAME = "maxValue";
-    public static final int DEF_MINUTES_INTERVAL = 30;
+    public static final int DEF_MINUTES_INTERVAL =  30;
     private NumberPicker numberPicker;
     View view;
     int minValue;

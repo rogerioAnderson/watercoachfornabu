@@ -191,6 +191,4 @@ public class MainActivity extends AppCompatActivity {
         current_screen = HOME;
     }
 
-
-
 }

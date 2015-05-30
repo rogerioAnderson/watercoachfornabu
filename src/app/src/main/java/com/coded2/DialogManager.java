@@ -29,9 +29,10 @@ public class DialogManager
 	public static final void hideLoading()
 	{
 		try{
-			loadingDialog.cancel();
+			if(loadingDialog!=null)
+				loadingDialog.cancel();
 		}catch(Exception e){
-			Log.d(Constants.APPLICATION_TAG,e.getMessage());
+			Log.d(Constants.APPLICATION_TAG,(e.getMessage()==null)?"Null pointer":e.getMessage());
 		}
 	}
 

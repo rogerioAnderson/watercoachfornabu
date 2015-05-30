@@ -16,6 +16,8 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 
 import com.coded2.DialogManager;
+import com.coded2.Util;
+import com.coded2.UtilNotification;
 import com.razer.android.nabuopensdk.NabuOpenSDK;
 import com.razer.android.nabuopensdk.interfaces.NabuAuthListener;
 import com.razer.android.nabuopensdk.interfaces.SendNotificationListener;
@@ -23,6 +25,7 @@ import com.razer.android.nabuopensdk.models.NabuNotification;
 import com.razer.android.nabuopensdk.models.Scope;
 
 import java.util.Date;
+import java.util.List;
 
 import static com.coded2.UtilNotification.checkStopAlarm;
 import static com.coded2.UtilNotification.stopAlarm;
@@ -37,23 +40,33 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         try{
 
-            Log.d(Constants.APPLICATION_TAG, "Instanciando sdk");
-            final NabuOpenSDK nabuSDK = NabuOpenSDK.getInstance(context);
-            /*nabuSDK.initiate(context, context.getString(R.string.razer_app_id), new String[]{Scope.COMPLETE}, new NabuAuthListener() {
-                @Override
-                public void onAuthSuccess(String s) {
-                    Log.d(Constants.APPLICATION_TAG, "Authentication success "+s);
-                    sendNotification(context,nabuSDK);
-                }
+            Log.d(Constants.APPLICATION_TAG, "Alarm Received");
 
-                @Override
-                public void onAuthFailed(String s) {
-                    String msg = "Auth failed: " + s;
-                    Log.d(Constants.APPLICATION_TAG, msg);
-                    Toast.makeText(context,msg,Toast.LENGTH_SHORT).show();
-                }
-            });
-            */
+            final NabuOpenSDK nabuSDK = NabuOpenSDK.getInstance(context);
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            int currentScore = 0;
+
+            List<DailyRecord> records = DailyRecord.listOFDay(context);
+
+            for (DailyRecord record: records){
+                currentScore+=record.ml;
+            }
+
+
+            String defValue = context.getString(R.string.default_water_ml_goal);
+            String keyGoal = context.getString(R.string.pref_key_goal);
+            int goal = Integer.parseInt(prefs.getString(keyGoal, defValue));
+
+            if(currentScore>=goal){
+                Log.w(Constants.APPLICATION_TAG,"daily goal1 achived");
+
+                shouldStopAlarm(context);
+
+                return;
+            }
+
+
 
             sendNotification(context,nabuSDK);
 
@@ -79,9 +92,16 @@ public class AlarmReceiver extends BroadcastReceiver {
             }
         });
 
+        shouldStopAlarm(context);
+    }
+
+    private void shouldStopAlarm(Context context) {
         boolean shouldStopAlarm = checkStopAlarm(context);
         if(shouldStopAlarm){
+            // it´s true the end time has come
             stopAlarm(context);
+            // then schedule alarm to next day
+            UtilNotification.shceduleNextNotification(context);
         }
     }
 }

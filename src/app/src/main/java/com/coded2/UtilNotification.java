@@ -100,10 +100,6 @@ public class UtilNotification {
     public static boolean checkStopAlarm(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-        boolean noficationEnabled = prefs.getBoolean(context.getString(R.string.pref_key_enable_notification), false);
-        if(!noficationEnabled){
-            return  true;
-        }
 
         int endHour = prefs.getInt(context.getString(R.string.pref_key_notification_end_time) + HOUR_SUFIX, CustomTimePreference.DEFAULT_HOUR);
         int endMinute = prefs.getInt(context.getString(R.string.pref_key_notification_end_time) + MINUTE_SUFIX, CustomTimePreference.DEFAULT_MINUTE);
@@ -117,14 +113,6 @@ public class UtilNotification {
             return true;
         }
 
-        int current_score = prefs.getInt(context.getString(R.string.pref_key_current_score), 0);
-        String defValue = context.getString(R.string.default_water_ml_goal);
-        String keyGoal = context.getString(R.string.pref_key_goal);
-        int goal = Integer.parseInt(prefs.getString(keyGoal, defValue));
-
-        if(current_score>=goal){
-            return true;
-        }
 
         return false;
     }

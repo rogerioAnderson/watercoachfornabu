@@ -56,6 +56,10 @@ public class MainFragment extends Fragment{
         goalBar.setProgress(progress);
 
 
+
+
+
+
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt(getString(R.string.pref_key_current_score),progress);
         editor.commit();
