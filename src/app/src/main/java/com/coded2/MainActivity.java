@@ -1,8 +1,7 @@
-package com.coded2.nabuwatercoach;
+package com.coded2;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
@@ -16,14 +15,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
-import com.coded2.DialogManager;
+import com.coded2.nabuwatercoach.AddWaterFragment;
+import com.coded2.nabuwatercoach.MainWaterCoachFragment;
+import com.coded2.nabuwatercoach.R;
+import com.coded2.nabuwatercoach.SettingsWaterCoachFragment;
 import com.razer.android.nabuopensdk.NabuOpenSDK;
-import com.razer.android.nabuopensdk.interfaces.NabuAuthListener;
-import com.razer.android.nabuopensdk.interfaces.UserProfileListener;
-import com.razer.android.nabuopensdk.models.Scope;
-import com.razer.android.nabuopensdk.models.UserProfile;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -109,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         initAdapter();
 
 
-        showMainFragment();
+        showMainWaterCoachFragment();
 
 
 }
@@ -120,10 +117,10 @@ public class MainActivity extends AppCompatActivity {
 
         switch (position){
             case HOME:
-                fragment = new MainFragment();
+                fragment = new MainWaterCoachFragment();
                 break;
             case SETTINGS:
-                fragment = new SettingsFragment();
+                fragment = new SettingsWaterCoachFragment();
                 break;
             case ABOUT:
                 fragment = new AboutFragment();
@@ -132,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 finish();
                 return;
             default:
-                fragment = new MainFragment();
+                fragment = new MainWaterCoachFragment();
         }
 
         current_screen = position;
@@ -146,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
 
         if(current_screen!=HOME){
-            showMainFragment();
+            showMainWaterCoachFragment();
             return;
         }
 
@@ -184,8 +181,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    void showMainFragment(){
-        MainFragment fragment = new MainFragment();
+    public void showMainWaterCoachFragment(){
+        MainWaterCoachFragment fragment = new MainWaterCoachFragment();
         FragmentManager manager = getFragmentManager();
         manager.beginTransaction().replace(R.id.content_view,fragment).commit();
         current_screen = HOME;

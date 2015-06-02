@@ -1,4 +1,4 @@
-package com.coded2.nabuwatercoach;
+package com.coded2;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

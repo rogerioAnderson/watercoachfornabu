@@ -1,28 +1,21 @@
 package com.coded2.nabuwatercoach;
 
-import android.app.AlertDialog;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.provider.OpenableColumns;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.SeekBar;
 import android.widget.Toast;
 
-import com.coded2.DialogManager;
-import com.coded2.Util;
+import com.coded2.Constants;
 import com.coded2.UtilNotification;
 import com.razer.android.nabuopensdk.NabuOpenSDK;
-import com.razer.android.nabuopensdk.interfaces.NabuAuthListener;
 import com.razer.android.nabuopensdk.interfaces.SendNotificationListener;
 import com.razer.android.nabuopensdk.models.NabuNotification;
-import com.razer.android.nabuopensdk.models.Scope;
 
 import java.util.Date;
 import java.util.List;
@@ -31,9 +24,10 @@ import static com.coded2.UtilNotification.checkStopAlarm;
 import static com.coded2.UtilNotification.stopAlarm;
 
 /**
+ *
  * Created by Rogerio on 22/05/2015.
  */
-public class AlarmReceiver extends BroadcastReceiver {
+public class AlarmWaterCoachReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(final Context context, Intent intent) {
@@ -42,7 +36,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
             Log.d(Constants.APPLICATION_TAG, "Alarm Received");
 
-            final NabuOpenSDK nabuSDK = NabuOpenSDK.getInstance(context);
+            //final NabuOpenSDK nabuSDK = NabuOpenSDK.getInstance(context);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             int currentScore = 0;
@@ -53,22 +47,32 @@ public class AlarmReceiver extends BroadcastReceiver {
                 currentScore+=record.ml;
             }
 
-
             String defValue = context.getString(R.string.default_water_ml_goal);
             String keyGoal = context.getString(R.string.pref_key_goal);
             int goal = Integer.parseInt(prefs.getString(keyGoal, defValue));
 
             if(currentScore>=goal){
                 Log.w(Constants.APPLICATION_TAG,"daily goal1 achived");
-
                 shouldStopAlarm(context);
-
                 return;
             }
 
 
+            NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(context);
+            nBuilder.setSmallIcon(R.drawable.ic_stat_icon);
+            nBuilder.setContentTitle(context.getString(R.string.app_name));
+            nBuilder.setContentText(context.getString(R.string.notification_line));
 
-            sendNotification(context,nabuSDK);
+            Intent resultIntent = new Intent(context,TransparentWCActivity.class);
+            PendingIntent resultPendingIntent = PendingIntent.getActivity(context,0,resultIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+
+            nBuilder.setContentIntent(resultPendingIntent);
+
+            NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+            manager.notify(Constants.WATER_COACH_NOTIFICATION_ID,nBuilder.build());
+
+
 
         }catch(Exception e){
                 Log.e(Constants.APPLICATION_TAG,e.getMessage());
@@ -76,7 +80,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         }
     }
 
-    private void sendNotification(Context context, NabuOpenSDK nabuSDK) {
+    private void sendNabuNotification(Context context, NabuOpenSDK nabuSDK) {
 
         Log.d(Constants.APPLICATION_TAG,"Sending Notification");
         nabuSDK.sendNotification(context, new NabuNotification(context.getString(R.string.app_name), context.getString(R.string.notification_line)), new SendNotificationListener() {
@@ -98,7 +102,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     private void shouldStopAlarm(Context context) {
         boolean shouldStopAlarm = checkStopAlarm(context);
         if(shouldStopAlarm){
-            // it´s true the end time has come
+            // its true the end time has come
             stopAlarm(context);
             // then schedule alarm to next day
             UtilNotification.shceduleNextNotification(context);

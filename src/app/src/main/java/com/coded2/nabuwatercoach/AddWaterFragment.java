@@ -1,14 +1,21 @@
 package com.coded2.nabuwatercoach;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.SeekBar;
+
+import com.coded2.Constants;
+import com.coded2.MainActivity;
 
 public class AddWaterFragment extends DialogFragment {
 
@@ -56,13 +63,35 @@ public class AddWaterFragment extends DialogFragment {
                     public void onClick(DialogInterface dialog, int which) {
                         if (mlValue > 0) {
                             DailyRecord record = new DailyRecord();
-                            record.ml= mlValue;
+                            record.ml = mlValue;
                             record.save(getActivity());
-                            ((MainActivity) getActivity()).showMainFragment();
+                            close();
                         }
+
+                        NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+                        notificationManager.cancel(Constants.WATER_COACH_NOTIFICATION_ID);
+
                     }
                 });
 
+        builder.setOnKeyListener(new DialogInterface.OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK) {
+                    close();
+                }
+                return false;
+            }
+        });
         return builder.create();
+    }
+
+    private void close() {
+        Activity activity = getActivity();
+        if (activity instanceof MainActivity) {
+            ((MainActivity) activity).showMainWaterCoachFragment();
+        } else {
+            activity.finish();
+        }
     }
 }

@@ -10,7 +10,7 @@ import com.coded2.UtilNotification;
 /**
  * Created by rogerioso on 07/05/2015.
  */
-public class SettingsFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class SettingsWaterCoachFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
 
     private int DEFAULT_ML_GOAL = 2000;

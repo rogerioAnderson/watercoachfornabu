@@ -4,9 +4,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.coded2.DBHelper;
 import com.coded2.Util;
-
-import org.apache.http.HttpEntity;
 
 import java.util.ArrayList;
 import java.util.Calendar;

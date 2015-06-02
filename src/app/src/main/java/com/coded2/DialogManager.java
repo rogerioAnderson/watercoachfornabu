@@ -9,8 +9,6 @@ import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
 
-import com.coded2.nabuwatercoach.Constants;
-
 public class DialogManager
 {
 	private static ProgressDialog loadingDialog;
@@ -22,8 +20,13 @@ public class DialogManager
 	
 	public static final void showLoading(Context context, String text,boolean modal)
 	{
-		loadingDialog = ProgressDialog.show(context, "", text, true, true);
-		loadingDialog.setCancelable(!modal);
+		try{
+			loadingDialog = ProgressDialog.show(context, "", text, true, true);
+			loadingDialog.setCancelable(!modal);
+		}catch(Exception e){
+			Log.d(Constants.APPLICATION_TAG, (e.getMessage()==null)?"NullPointerException":e.getMessage());
+		}
+
 	}
 
 	public static final void hideLoading()
@@ -32,7 +35,7 @@ public class DialogManager
 			if(loadingDialog!=null)
 				loadingDialog.cancel();
 		}catch(Exception e){
-			Log.d(Constants.APPLICATION_TAG,(e.getMessage()==null)?"Null pointer":e.getMessage());
+			Log.d(Constants.APPLICATION_TAG,(e.getMessage()==null)?"NullPointerException":e.getMessage());
 		}
 	}
 
@@ -68,7 +71,7 @@ public class DialogManager
 		alertDialog.show();
 	}
 	
-	public static final AlertDialog.Builder confirm(Context context, String title, String msg, String cancel, String confirm, OnClickListener confirmListener, OnClickListener cancelListener)
+	public static final AlertDialog.Builder confirm(Context context, int title, int msg, int cancel, int confirm, OnClickListener confirmListener, OnClickListener cancelListener)
 	{
 		final AlertDialog.Builder alert = new AlertDialog.Builder(context);
 

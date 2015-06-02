@@ -4,16 +4,11 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.content.res.TypedArray;
 import android.preference.DialogPreference;
-import android.preference.Preference;
-import android.text.format.DateFormat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
-import android.widget.TimePicker;
 
 import com.coded2.nabuwatercoach.R;
 

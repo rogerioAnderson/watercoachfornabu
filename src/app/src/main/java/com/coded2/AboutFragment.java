@@ -1,4 +1,4 @@
-package com.coded2.nabuwatercoach;
+package com.coded2;
 
 import android.app.Fragment;
 import android.content.ActivityNotFoundException;
@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.coded2.nabuwatercoach.R;
 
 /**
  * Created by rogerioso on 26/05/2015.

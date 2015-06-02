@@ -2,60 +2,11 @@
 <items version="2" >
 
     <item
-        jar="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
-        <dex dex="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\pre-dexed\debug\classes-4cd7c229aa9c46fcd4d27a4f199f1807d063bdcb.jar" />
-    </item>
-    <item
         jar="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\libs\jackson-core-2.2.3.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14">
         <dex dex="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\pre-dexed\debug\jackson-core-2.2.3-1296def7ca769b3735ad20e392d2eeacd9138565.jar" />
-    </item>
-    <item
-        jar="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
-        <dex dex="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\pre-dexed\debug\classes-27ac474175d9f399b174036a446eb8ff5dd16f76.jar" />
-    </item>
-    <item
-        jar="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="e0b0c35d02308b270015a74cada4887e2e49b889">
-        <dex dex="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\pre-dexed\debug\classes-5afdb41d7da6069cb3b9ba31c48c710df94f3d18.jar" />
-    </item>
-    <item
-        jar="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\libs\jackson-annotations-2.2.3.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="0bc6adfb0bcdfeab3c26ee7f57f86cf89936de08">
-        <dex dex="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\pre-dexed\debug\jackson-annotations-2.2.3-f935f9097281f510afabfbb90aff2e7630913682.jar" />
-    </item>
-    <item
-        jar="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\libs\volley.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="8d62b91f5ccb6f7f872313191c016c03bb61a792">
-        <dex dex="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\pre-dexed\debug\volley-b7029bb7675281eeded6b9145ab5142c540a02e7.jar" />
-    </item>
-    <item
-        jar="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\libs\acra-4.5.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="44a5eb946e0d83eed4a0128d877ca1fd8168b83a">
-        <dex dex="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\pre-dexed\debug\acra-4.5.0-2e48e3aadabe9b6bcd9cfef814ed9a1ea7d6f1a5.jar" />
-    </item>
-    <item
-        jar="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\libs\jackson-databind-2.2.3.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="3abbdf2b31255823b7eb042c51094607ce19f0d8">
-        <dex dex="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\pre-dexed\debug\jackson-databind-2.2.3-3b07d1a399a715ff381346ea1c755b713b9d5073.jar" />
     </item>
     <item
         jar="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\libs\nabuopensdk_final.jar"
@@ -65,11 +16,32 @@
         <dex dex="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\pre-dexed\debug\nabuopensdk_final-1ca790db1f853d62b9e22f4425b2612566c0c4b0.jar" />
     </item>
     <item
-        jar="E:\desenvolvimento\android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
+        jar="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\libs\acra-4.5.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
-        <dex dex="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-736d9ce70c5b74d5c47036b54abdb315490773f9.jar" />
+        sha1="44a5eb946e0d83eed4a0128d877ca1fd8168b83a">
+        <dex dex="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\pre-dexed\debug\acra-4.5.0-2e48e3aadabe9b6bcd9cfef814ed9a1ea7d6f1a5.jar" />
+    </item>
+    <item
+        jar="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\pre-dexed\debug\classes-27ac474175d9f399b174036a446eb8ff5dd16f76.jar" />
+    </item>
+    <item
+        jar="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\libs\jackson-databind-2.2.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3abbdf2b31255823b7eb042c51094607ce19f0d8">
+        <dex dex="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\pre-dexed\debug\jackson-databind-2.2.3-3b07d1a399a715ff381346ea1c755b713b9d5073.jar" />
+    </item>
+    <item
+        jar="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
+        <dex dex="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\pre-dexed\debug\classes-4cd7c229aa9c46fcd4d27a4f199f1807d063bdcb.jar" />
     </item>
     <item
         jar="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\libs\internal_impl-22.1.1.jar"
@@ -77,6 +49,34 @@
         revision="22.0.1"
         sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
         <dex dex="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-e8553b0525bb68b217c2fd5eee714582a1651ce0.jar" />
+    </item>
+    <item
+        jar="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e0b0c35d02308b270015a74cada4887e2e49b889">
+        <dex dex="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\pre-dexed\debug\classes-5afdb41d7da6069cb3b9ba31c48c710df94f3d18.jar" />
+    </item>
+    <item
+        jar="E:\desenvolvimento\android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-736d9ce70c5b74d5c47036b54abdb315490773f9.jar" />
+    </item>
+    <item
+        jar="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\libs\volley.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8d62b91f5ccb6f7f872313191c016c03bb61a792">
+        <dex dex="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\pre-dexed\debug\volley-b7029bb7675281eeded6b9145ab5142c540a02e7.jar" />
+    </item>
+    <item
+        jar="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\libs\jackson-annotations-2.2.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0bc6adfb0bcdfeab3c26ee7f57f86cf89936de08">
+        <dex dex="E:\desenvolvimento\Nabu\projeto\NabuWaterCoach\src\app\build\intermediates\pre-dexed\debug\jackson-annotations-2.2.3-f935f9097281f510afabfbb90aff2e7630913682.jar" />
     </item>
 
 </items>

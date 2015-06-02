@@ -9,8 +9,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.coded2.nabuwatercoach.AlarmReceiver;
-import com.coded2.nabuwatercoach.Constants;
+import com.coded2.nabuwatercoach.AlarmWaterCoachReceiver;
 import com.coded2.nabuwatercoach.R;
 
 import java.util.Calendar;
@@ -66,7 +65,7 @@ public class UtilNotification {
         }
 
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(context, AlarmReceiver.class);
+        Intent intent = new Intent(context, AlarmWaterCoachReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, notificationDate.getTimeInMillis(),
                 minutesToMillesconds(intervalInMinutes),
@@ -90,7 +89,7 @@ public class UtilNotification {
 
     public static void stopAlarm(Context context) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Intent alarmIntent = new Intent(context, AlarmReceiver.class);
+        Intent alarmIntent = new Intent(context, AlarmWaterCoachReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, PendingIntent.FLAG_CANCEL_CURRENT);
         alarmManager.cancel(pendingIntent);
 

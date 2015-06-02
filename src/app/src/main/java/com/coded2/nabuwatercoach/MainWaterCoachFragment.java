@@ -15,10 +15,13 @@ import android.widget.GridView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.coded2.DBHelper;
+import com.coded2.MainActivity;
+
 import java.util.List;
 
 
-public class MainFragment extends Fragment{
+public class MainWaterCoachFragment extends Fragment{
 
     TextView score ;
     ProgressBar goalBar;
@@ -80,7 +83,7 @@ public class MainFragment extends Fragment{
                     public void onClick(DialogInterface dialog, int which) {
                         DailyRecord record = (DailyRecord) dailyRecords.getAdapter().getItem(position);
                         record.delete(getActivity());
-                        ((MainActivity) getActivity()).showMainFragment();
+                        ((MainActivity) getActivity()).showMainWaterCoachFragment();
                     }
                 });
 

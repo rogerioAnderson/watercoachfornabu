@@ -1,4 +1,4 @@
-package com.coded2.nabuwatercoach;
+package com.coded2;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.coded2.nabuwatercoach.R;
 
 /**
  * Created by Rogerio on 20/05/2015.
