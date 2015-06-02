@@ -41,9 +41,9 @@ public class AlarmWaterCoachReceiver extends BroadcastReceiver {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             int currentScore = 0;
 
-            List<DailyRecord> records = DailyRecord.listOFDay(context);
+            List<WaterDailyRecord> records = WaterDailyRecord.listOFDay(context);
 
-            for (DailyRecord record: records){
+            for (WaterDailyRecord record: records){
                 currentScore+=record.ml;
             }
 

@@ -16,5 +16,12 @@ public class Util {
         return sdf.format(data);
     }
 
+    public static String formatDate(Date data){
+        if(data==null)
+            return "";
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(data);
+    }
 
 }

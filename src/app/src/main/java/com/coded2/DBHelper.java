@@ -14,7 +14,7 @@ public class DBHelper extends SQLiteOpenHelper{
     public static final String DATABASE_NAME = "NabuWaterCoach.db";
 
 
-    private static final String SQL_CREATE = "CREATE TABLE [daily_record] (\n" +
+    private static final String SQL_CREATE = "CREATE TABLE [water_daily_record] (\n" +
             "  [ml] INT(4) NOT NULL ON CONFLICT FAIL, \n" +
             "  [date] DATE NOT NULL ON CONFLICT FAIL DEFAULT CURRENT_DATE, \n" +
             "  [time] TIME NOT NULL ON CONFLICT FAIL DEFAULT CURRENT_TIME);";

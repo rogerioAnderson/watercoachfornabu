@@ -30,7 +30,7 @@ public class MainWaterCoachFragment extends Fragment{
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_water_coach_main, container, false);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
@@ -48,9 +48,9 @@ public class MainWaterCoachFragment extends Fragment{
         DBHelper helper = new DBHelper(getActivity());
         SQLiteDatabase db = helper.getReadableDatabase();
 
-        List<DailyRecord> records = DailyRecord.listOFDay(getActivity());
+        List<WaterDailyRecord> records = WaterDailyRecord.listOFDay(getActivity());
 
-        for (DailyRecord record: records){
+        for (WaterDailyRecord record: records){
             progress+=record.ml;
         }
 
@@ -81,7 +81,7 @@ public class MainWaterCoachFragment extends Fragment{
                 builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        DailyRecord record = (DailyRecord) dailyRecords.getAdapter().getItem(position);
+                        WaterDailyRecord record = (WaterDailyRecord) dailyRecords.getAdapter().getItem(position);
                         record.delete(getActivity());
                         ((MainActivity) getActivity()).showMainWaterCoachFragment();
                     }

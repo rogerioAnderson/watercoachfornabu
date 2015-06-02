@@ -62,7 +62,7 @@ public class AddWaterFragment extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (mlValue > 0) {
-                            DailyRecord record = new DailyRecord();
+                            WaterDailyRecord record = new WaterDailyRecord();
                             record.ml = mlValue;
                             record.save(getActivity());
                             close();

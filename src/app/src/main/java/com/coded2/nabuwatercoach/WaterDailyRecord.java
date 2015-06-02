@@ -15,15 +15,15 @@ import java.util.List;
 /**
  * Created by rogerioso on 12/05/2015.
  */
-public class DailyRecord {
+public class WaterDailyRecord {
 
     final static String ID_COLUMN_NAME="rowid";
     final static String ML_COLUMN_NAME="ml";
     final static String DATE_COLUMN_NAME ="date";
     final static String TIME_COLUMN_NAME ="time";
-    final static String DAILY_RECORD_TABLE_NAME="daily_record";
+    final static String DAILY_RECORD_TABLE_NAME="water_daily_record";
     final static String SQL_LIST_CURRENT_DATE = "SELECT ROWID, ML, DATE, TIME FROM " + DAILY_RECORD_TABLE_NAME + " WHERE DATE = CURRENT_DATE ORDER BY TIME ASC";
-    final static String SQL_INSERT_RECORD = "INSERT INTO "+DAILY_RECORD_TABLE_NAME+" ("+ML_COLUMN_NAME+",time) VALUES (?,?)";
+    final static String SQL_INSERT_RECORD = "INSERT INTO "+DAILY_RECORD_TABLE_NAME+" ("+ML_COLUMN_NAME+","+TIME_COLUMN_NAME+","+DATE_COLUMN_NAME+") VALUES (?,?,?)";
     final static String SQL_DELETE_RECORD = "DELETE FROM "+DAILY_RECORD_TABLE_NAME+" WHERE ROWID = ?";
 
     final String [] DB_COLUMNS = {ID_COLUMN_NAME,ML_COLUMN_NAME,DATE_COLUMN_NAME,TIME_COLUMN_NAME};
@@ -41,12 +41,12 @@ public class DailyRecord {
 
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(System.currentTimeMillis());
-
-
-            String currentTime = Util.formatHora(new Date(System.currentTimeMillis()));
-
-            String params[] = {Integer.toString(this.ml),currentTime};
+            Date now = new Date(System.currentTimeMillis());
+            String currentTime = Util.formatHora(now);
+            String currentDate = Util.formatDate(now);
+            String params[] = {Integer.toString(this.ml),currentTime,currentDate};
             db.execSQL(SQL_INSERT_RECORD,params);
+
         }finally {
             db.close();
             helper.close();
@@ -68,8 +68,8 @@ public class DailyRecord {
     }
 
 
-    static List<DailyRecord> listOFDay(Context ctx) {
-        List<DailyRecord> result = new ArrayList<DailyRecord>();
+    static List<WaterDailyRecord> listOFDay(Context ctx) {
+        List<WaterDailyRecord> result = new ArrayList<WaterDailyRecord>();
         DBHelper helper = new DBHelper(ctx);
         SQLiteDatabase db = helper.getReadableDatabase();
         try{
@@ -77,7 +77,7 @@ public class DailyRecord {
             try{
                 if (cursor.moveToFirst()) {
                     do {
-                        DailyRecord record = new DailyRecord();
+                        WaterDailyRecord record = new WaterDailyRecord();
                         record.rowid = cursor.getLong(cursor.getColumnIndex(ID_COLUMN_NAME));
                         record.ml = cursor.getInt(cursor.getColumnIndex(ML_COLUMN_NAME));
                         record.date = cursor.getString(cursor.getColumnIndex(DATE_COLUMN_NAME));

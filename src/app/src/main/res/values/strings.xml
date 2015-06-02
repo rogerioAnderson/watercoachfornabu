@@ -45,6 +45,6 @@
     <string name="about">About</string>
     <string name="developed_by">Developed by Rogerio Souza</string>
     <string name="disclaimer">Razer Nabu X is a trademark of Razer Inc. All other trademarls are propely of their respectives owners</string>
-    <string name="login_razerid_title">Do you have a have a Razer ID?</string>
+    <string name="login_razerid_title">Do you have a Razer ID?</string>
     <string name="login_razerid_message">If you have some a Nabu or Nabu X, inform your Razer ID</string>
 </resources>
