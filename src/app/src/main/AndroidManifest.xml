@@ -39,7 +39,7 @@
 
         <activity android:name="com.razer.android.nabuopensdk.ActivityWebView" />
 
-        <receiver   android:name=".StartUpReceiver"
+        <receiver   android:name=".StartUpWaterCoachReceiver"
                     android:enabled="true"
                     android:exported="true"
                     android:label="StartUpNabuWaterCoach">

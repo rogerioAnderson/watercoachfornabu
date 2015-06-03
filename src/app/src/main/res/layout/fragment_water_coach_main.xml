@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
@@ -37,6 +38,19 @@
         android:numColumns="3"
         android:nestedScrollingEnabled="false"
         android:layout_marginTop="20dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:src="@drawable/ic_action_add"
+        android:id="@+id/add_water_btn"
+        app:fabSize="normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|end"
+        android:stateListAnimator="@animator/fab_anim"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/goal_bar"
+        android:layout_alignEnd="@+id/goal_bar"
+        android:layout_marginBottom="37dp" />
 
 
 </RelativeLayout>

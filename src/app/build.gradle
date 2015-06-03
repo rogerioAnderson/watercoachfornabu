@@ -21,9 +21,10 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.1.1'
     compile 'com.android.support:recyclerview-v7:22.1.1'
     compile files('libs/nabuopensdk_final.jar')
     compile files('libs/acra-4.5.0.jar')
+    compile 'com.android.support:design:22.2.0'
 }

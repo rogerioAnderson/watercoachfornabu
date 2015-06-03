@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,7 @@ public class MainWaterCoachFragment extends Fragment{
     TextView score ;
     ProgressBar goalBar;
     GridView dailyRecords;
-
+    FloatingActionButton addButon;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -43,6 +44,19 @@ public class MainWaterCoachFragment extends Fragment{
         goalBar.setProgressDrawable(getResources().getDrawable(R.drawable.razer_progress));
         goalBar.setMax(Integer.parseInt(goal));
         dailyRecords = (GridView) rootView.findViewById(R.id.daily_records);
+        addButon = (FloatingActionButton) rootView.findViewById(R.id.add_water_btn);
+
+
+
+        addButon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddWaterFragment dialog = new AddWaterFragment();
+                dialog.show(getFragmentManager(),null);
+            }
+        });
+
+
 
         int progress = 0;
         DBHelper helper = new DBHelper(getActivity());
@@ -59,16 +73,12 @@ public class MainWaterCoachFragment extends Fragment{
         goalBar.setProgress(progress);
 
 
-
-
-
-
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt(getString(R.string.pref_key_current_score),progress);
         editor.commit();
 
 
-        RegistryAdapter adapter = new RegistryAdapter(getActivity(),R.layout.registry, records);
+        WaterCoachRegistryAdapter adapter = new WaterCoachRegistryAdapter(getActivity(),R.layout.registry, records);
 
         dailyRecords.setAdapter(adapter);
 
