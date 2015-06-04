@@ -36,7 +36,7 @@ public class AlarmWaterCoachReceiver extends BroadcastReceiver {
 
             Log.d(Constants.APPLICATION_TAG, "Alarm Received");
 
-            //final NabuOpenSDK nabuSDK = NabuOpenSDK.getInstance(context);
+            final NabuOpenSDK nabuSDK = NabuOpenSDK.getInstance(context);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             int currentScore = 0;
@@ -58,19 +58,16 @@ public class AlarmWaterCoachReceiver extends BroadcastReceiver {
             }
 
 
-            NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(context);
-            nBuilder.setSmallIcon(R.drawable.ic_stat_icon);
-            nBuilder.setContentTitle(context.getString(R.string.app_name));
-            nBuilder.setContentText(context.getString(R.string.notification_line));
+            sendNotification(context);
+            try{
+                sendNabuNotification(context,nabuSDK);
+            }catch(Exception e){
+                Log.e(Constants.APPLICATION_TAG,(e.getMessage()!=null)?e.getMessage():"Error sending nabu notification");
+            }
 
-            Intent resultIntent = new Intent(context,TransparentWCActivity.class);
-            PendingIntent resultPendingIntent = PendingIntent.getActivity(context,0,resultIntent,PendingIntent.FLAG_UPDATE_CURRENT);
 
-            nBuilder.setContentIntent(resultPendingIntent);
+            shouldStopAlarm(context);
 
-            NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-
-            manager.notify(Constants.WATER_COACH_NOTIFICATION_ID,nBuilder.build());
 
 
 
@@ -80,23 +77,38 @@ public class AlarmWaterCoachReceiver extends BroadcastReceiver {
         }
     }
 
+    private void sendNotification(Context context) {
+        NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(context);
+        nBuilder.setSmallIcon(R.drawable.ic_stat_icon);
+        nBuilder.setContentTitle(context.getString(R.string.app_name));
+        nBuilder.setContentText(context.getString(R.string.notification_line));
+
+        Intent resultIntent = new Intent(context,TransparentWCActivity.class);
+        PendingIntent resultPendingIntent = PendingIntent.getActivity(context,0,resultIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+
+        nBuilder.setContentIntent(resultPendingIntent);
+
+        NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        manager.notify(Constants.WATER_COACH_NOTIFICATION_ID,nBuilder.build());
+    }
+
     private void sendNabuNotification(Context context, NabuOpenSDK nabuSDK) {
 
-        Log.d(Constants.APPLICATION_TAG,"Sending Notification");
+        Log.d(Constants.APPLICATION_TAG, "Sending Notification");
         nabuSDK.sendNotification(context, new NabuNotification(context.getString(R.string.app_name), context.getString(R.string.notification_line)), new SendNotificationListener() {
 
             @Override
             public void onSuccess(String s) {
-                Log.i(Constants.APPLICATION_TAG,s+" Notification sent at: "+ new Date(System.currentTimeMillis()));
+                Log.i(Constants.APPLICATION_TAG, s + " Notification sent at: " + new Date(System.currentTimeMillis()));
             }
 
             @Override
             public void onFailed(String s) {
-                Log.e(Constants.APPLICATION_TAG,"Notification failed: "+s);
+                Log.e(Constants.APPLICATION_TAG, "Notification failed: " + s);
             }
         });
 
-        shouldStopAlarm(context);
     }
 
     private void shouldStopAlarm(Context context) {
