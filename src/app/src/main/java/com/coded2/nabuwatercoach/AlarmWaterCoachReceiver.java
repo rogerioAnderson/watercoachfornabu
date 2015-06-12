@@ -57,19 +57,9 @@ public class AlarmWaterCoachReceiver extends BroadcastReceiver {
                 return;
             }
 
-
             sendNotification(context);
-            try{
-                sendNabuNotification(context,nabuSDK);
-            }catch(Exception e){
-                Log.e(Constants.APPLICATION_TAG,(e.getMessage()!=null)?e.getMessage():"Error sending nabu notification");
-            }
-
 
             shouldStopAlarm(context);
-
-
-
 
         }catch(Exception e){
                 Log.e(Constants.APPLICATION_TAG,e.getMessage());

@@ -2,6 +2,7 @@ package com.coded2;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
@@ -27,17 +28,19 @@ public class MainActivity extends AppCompatActivity {
 
     private int current_screen;
 
-    private static final int HOME =      1;
-    private static final int SETTINGS =  2;
-    private static final int ABOUT =     3;
-    private static final int EXIT =      4;
+    private static final int HOME =            1;
+    private static final int WATERCOACH =      2;
+    private static final int SETTINGS =        3;
+    private static final int ABOUT =           4;
+    private static final int EXIT =            5;
+
 
 
 
 
     private Toolbar toolbar;
-    int TITLES [] = {R.string.home,R.string.settings,R.string.About};
-    int ICONS[] = {R.drawable.ic_home,R.drawable.ic_settings,R.drawable.ic_about};
+    int TITLES [] = {R.string.home,     R.string.water_coach,       R.string.settings,      R.string.About};
+    int ICONS[] = {R.drawable.ic_home,  R.drawable.ic_water_coach,  R.drawable.ic_settings, R.drawable.ic_about};
     int DEFAULT_PROFILE = R.drawable.bottle;
 
 
@@ -106,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         initAdapter();
 
 
-        showMainWaterCoachFragment();
+        showGoalFragment();
 
 
 }
@@ -117,6 +120,9 @@ public class MainActivity extends AppCompatActivity {
 
         switch (position){
             case HOME:
+                fragment = new GoalFragment();
+                break;
+            case WATERCOACH:
                 fragment = new MainWaterCoachFragment();
                 break;
             case SETTINGS:
@@ -129,13 +135,15 @@ public class MainActivity extends AppCompatActivity {
                 finish();
                 return;
             default:
-                fragment = new MainWaterCoachFragment();
+                fragment = new GoalFragment();
         }
 
         current_screen = position;
 
         FragmentManager manager = getFragmentManager();
-        manager.beginTransaction().replace(R.id.content_view,fragment).commit();
+        FragmentTransaction transction = manager.beginTransaction();
+        transction.setCustomAnimations(android.R.animator.fade_in,android.R.animator.fade_out);
+        transction.replace(R.id.content_view, fragment).commit();
 
     }
 
@@ -143,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
 
         if(current_screen!=HOME){
-            showMainWaterCoachFragment();
+            showGoalFragment();
             return;
         }
 
@@ -184,7 +192,18 @@ public class MainActivity extends AppCompatActivity {
     public void showMainWaterCoachFragment(){
         MainWaterCoachFragment fragment = new MainWaterCoachFragment();
         FragmentManager manager = getFragmentManager();
-        manager.beginTransaction().replace(R.id.content_view,fragment).commit();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.setCustomAnimations(R.anim.right_to_left,android.R.animator.fade_out);
+        transaction.replace(R.id.content_view,fragment).commit();
+        current_screen = WATERCOACH;
+    }
+
+
+    public void showGoalFragment(){
+        GoalFragment fragment = new GoalFragment();
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.content_view, fragment).commit();
         current_screen = HOME;
     }
 

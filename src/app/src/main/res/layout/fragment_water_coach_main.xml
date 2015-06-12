@@ -46,7 +46,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="bottom|end"
-        android:stateListAnimator="@animator/fab_anim"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/goal_bar"
         android:layout_alignEnd="@+id/goal_bar"

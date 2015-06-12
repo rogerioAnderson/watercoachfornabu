@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:background="@color/background_floating_material_dark"
+    android:padding="10dp"
+    android:layout_margin="10dp"
+    android:gravity="center_vertical">
+
+    <com.coded2.ArcProgress
+        android:id="@+id/progress"
+        custom:arc_unfinished_color="@color/background_material_light"
+        custom:arc_finished_color="@color/ColorPrimaryDark"
+        android:layout_height="90dp"
+        android:layout_width="90dp"
+        custom:arc_text_size="30sp"
+        custom:arc_suffix_text="%"
+        custom:arc_text_color="@color/ColorPrimary"
+        custom:arc_progress="0"
+        custom:arc_suffix_text_padding="0sp"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_alignTop="@+id/progress"
+
+            android:layout_centerHorizontal="true"
+            android:text="Water"
+            android:id="@+id/title"
+            android:layout_marginTop="10sp"
+            android:gravity="top" />
+
+        <TextView
+            android:text="2000/2000 ml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignBottom="@+id/progress"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_margin="10dp"
+            android:id="@+id/progressTxt" />
+
+
+</RelativeLayout>

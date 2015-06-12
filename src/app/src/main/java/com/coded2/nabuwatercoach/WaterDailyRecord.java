@@ -29,7 +29,7 @@ public class WaterDailyRecord {
     final String [] DB_COLUMNS = {ID_COLUMN_NAME,ML_COLUMN_NAME,DATE_COLUMN_NAME,TIME_COLUMN_NAME};
 
     long rowid;
-    int ml;
+    public int ml;
     String date;
     String time;
 
@@ -68,7 +68,7 @@ public class WaterDailyRecord {
     }
 
 
-    static List<WaterDailyRecord> listOFDay(Context ctx) {
+    public static List<WaterDailyRecord> listOFDay(Context ctx) {
         List<WaterDailyRecord> result = new ArrayList<WaterDailyRecord>();
         DBHelper helper = new DBHelper(ctx);
         SQLiteDatabase db = helper.getReadableDatabase();
