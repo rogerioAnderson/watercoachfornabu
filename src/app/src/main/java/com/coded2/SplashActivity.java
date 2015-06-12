@@ -74,7 +74,7 @@ public class SplashActivity extends Activity {
                 }
             };
 
-            DialogManager.confirm(this, R.string.login_razerid_title, R.string.login_razerid_message, android.R.string.cancel, android.R.string.yes,
+            DialogManager.confirm(this, R.string.login_razerid_title, R.string.login_razerid_message, android.R.string.cancel, android.R.string.ok,
                     confirmListener, cancelListener);
 
 

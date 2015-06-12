@@ -52,7 +52,7 @@ public class AlarmWaterCoachReceiver extends BroadcastReceiver {
             int goal = Integer.parseInt(prefs.getString(keyGoal, defValue));
 
             if(currentScore>=goal){
-                Log.w(Constants.APPLICATION_TAG,"daily goal1 achived");
+                Log.w(Constants.APPLICATION_TAG,"daily goal achived");
                 shouldStopAlarm(context);
                 return;
             }
