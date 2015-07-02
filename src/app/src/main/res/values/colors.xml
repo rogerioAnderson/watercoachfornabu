@@ -2,5 +2,10 @@
 <resources>
     <color name="ColorPrimary">#ff0e900e</color>
     <color name="ColorPrimaryDark">#0CAE2A</color>
-
+<!-- colors of betterpicker lib-->
+    <color name="bpBlue">#ff0e900e</color>
+    <!--
+    <color name="bpBlue_focused">#c1e8f7</color>
+    <color name="bpDarker_blue">#0099cc</color>
+        end of betterpicker lib colors -->
 </resources>

@@ -58,9 +58,9 @@ public class CustomTimePreference extends DialogPreference{
         updateValue();
     }
 
-    private void updateValue() {
+    public void updateValue() {
         int hour = getSharedPreferences().getInt(getKey() + HOUR_SUFIX, DEFAULT_HOUR);
-        int minute = getSharedPreferences().getInt(getKey() + ".minute", DEFAULT_MINUTE);
+        int minute = getSharedPreferences().getInt(getKey() + MINUTE_SUFIX, DEFAULT_MINUTE);
         if(view !=null){
             TextView value = (TextView) view.findViewById(R.id.pref_view_value);
             String time;

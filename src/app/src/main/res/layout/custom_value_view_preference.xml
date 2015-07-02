@@ -19,6 +19,7 @@
     </LinearLayout>
     <TextView
         android:layout_width="fill_parent"
+        android:visibility="gone"
         android:id="@+id/pref_view_value"
         android:layout_height="fill_parent"
         style="@android:style/TextAppearance.DeviceDefault.SearchResult.Title"

@@ -7,8 +7,8 @@ android {
         applicationId "com.coded2.nabuwatercoach"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 10
-        versionName '1.8'
+        versionCode 11
+        versionName '1.9'
     }
     buildTypes {
         release {
@@ -27,4 +27,6 @@ dependencies {
     compile files('libs/nabuopensdk_final.jar')
     compile files('libs/acra-4.5.0.jar')
     compile 'com.android.support:design:22.2.0'
+    compile 'com.doomonafireball.betterpickers:library:1.6.0'
+    compile 'org.jraf:android-switch-backport:1.4.0@aar'
 }

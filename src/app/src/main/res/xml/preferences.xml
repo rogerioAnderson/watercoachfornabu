@@ -10,6 +10,7 @@
                     android:key="@string/pref_key_enable_notification"
                     android:defaultValue="false"/>
 
+
             <com.coded2.CustomTimePreference
                 android:title="@string/notifications_start"
                 android:summary="@string/notifications_start_summary"
@@ -49,6 +50,7 @@
                 android:key="@string/pref_key_goal"
                 android:width="10dp"
                 android:gravity="center"
+                android:defaultValue="2000"
                 android:inputType="numberSigned"/>
         </PreferenceCategory>
 

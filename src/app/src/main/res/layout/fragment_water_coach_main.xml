@@ -33,7 +33,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/daily_records"
-        android:layout_below="@+id/goal_bar"
+        android:layout_below="@+id/lbl_date"
         android:stretchMode="columnWidth"
         android:numColumns="3"
         android:nestedScrollingEnabled="false"
@@ -51,6 +51,18 @@
         android:layout_alignRight="@+id/goal_bar"
         android:layout_alignEnd="@+id/goal_bar"
         android:layout_marginBottom="37dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="30/02/1999"
+        android:id="@+id/lbl_date"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+        android:layout_below="@+id/goal_bar"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

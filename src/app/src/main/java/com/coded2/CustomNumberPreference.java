@@ -36,7 +36,6 @@ public class CustomNumberPreference extends DialogPreference{
         numberPicker.setMinValue(minValue);
         numberPicker.setMaxValue(maxValue);
         numberPicker.setValue(getSharedPreferences().getInt(getKey(), DEF_MINUTES_INTERVAL));
-
     }
 
     @Override
@@ -56,7 +55,7 @@ public class CustomNumberPreference extends DialogPreference{
         updateValue();
     }
 
-    private void updateValue() {
+    public void updateValue() {
         int value =  getSharedPreferences().getInt(getKey(),DEF_MINUTES_INTERVAL);
         if(view !=null){
             TextView TxtValue = (TextView) view.findViewById(R.id.pref_view_value);

@@ -16,15 +16,15 @@
     <string name="notifications_enable">Enable Notifications</string>
     <string name="goal">Goal</string>
     <string name="notifications_start">Start at</string>
-    <string name="notifications_start_summary">when the notifications start</string>
+    <string name="notifications_start_summary">Notification starts at #TIME#</string>
     <string name="pref_key_notification_start_time">notification_start_time</string>
     <string name="notifications_end">End at</string>
-    <string name="notifications_end_summary">when the notifications stop</string>
+    <string name="notifications_end_summary">Notifications stops at #TIME#</string>
     <string name="pref_key_notification_end_time">notification_end_time</string>
     <string name="action_drink_water">Drink Water</string>
     <string name="label_add_water">Drink Water</string>
     <string name="notifications_interval">Interval</string>
-    <string name="notifications_interval_summary">The interval of notifications in minutes</string>
+    <string name="notifications_interval_summary">You will be notified every #INTERVAL# minutes</string>
     <string name="pref_key_notification_interval">pref_key_notification_interval</string>
     <string name="notification_line">It´s time to drink Water</string>
     <string name="pref_key_current_score">current_score</string>
@@ -47,4 +47,7 @@
     <string name="disclaimer">Razer Nabu X is a trademark of Razer Inc. All other trademarls are propely of their respectives owners</string>
     <string name="login_razerid_title">This app is built to be integrated with a Razer Nabu/Nabu X.</string>
     <string name="login_razerid_message">If you are using one, your RazerID will automatically be read via the Utility app</string>
+    <string name="action_history">history</string>
+    <string name="imutable_past_information">Can not change past informations</string>
+    <string name="action_statics">Statistics</string>
 </resources>

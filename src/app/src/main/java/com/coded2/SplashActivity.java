@@ -94,7 +94,6 @@ public class SplashActivity extends Activity {
                     public void onReceiveData(UserProfile userProfile) {
                         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(SplashActivity.this).edit();
                         editor.putString(getString(R.string.pref_key_nickname), userProfile.nickName);
-                        editor.putBoolean(getString(R.string.pref_key_first_run), false);
                         editor.apply();
                         finishSplash();
                     }
@@ -118,6 +117,8 @@ public class SplashActivity extends Activity {
 
     private void finishSplash() {
         Intent it = new Intent(SplashActivity.this, MainActivity.class);
+        SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(SplashActivity.this).edit();
+        editor.putBoolean(getString(R.string.pref_key_first_run), false).commit();
         startActivity(it);
         finish();
     }

@@ -1,9 +1,10 @@
 package com.coded2;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
+
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.GestureDetector;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -115,29 +117,25 @@ public class MainActivity extends AppCompatActivity {
 
         Fragment fragment;
 
+
         switch (position){
             case HOME:
-                fragment = new MainWaterCoachFragment();
-                break;
+                showMainWaterCoachFragment();
+                return;
             case SETTINGS:
-                fragment = new SettingsWaterCoachFragment();
-                break;
+                showSettingsWaterCoachFragment();
+                return;
             case ABOUT:
-                fragment = new AboutFragment();
-                break;
+                showAboutFragment();
+                return;
             case EXIT:
                 finish();
                 return;
             default:
-                fragment = new MainWaterCoachFragment();
+                showMainWaterCoachFragment();
+                return;
         }
-
-        current_screen = position;
-
-        FragmentManager manager = getFragmentManager();
-        manager.beginTransaction().replace(R.id.content_view,fragment).commit();
-
-    }
+}
 
     @Override
     public void onBackPressed() {
@@ -161,9 +159,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
+        //MenuInflater inflater = getMenuInflater();
+        //inflater.inflate(R.menu.menu_water, menu);
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -173,19 +173,33 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.action_drink_water) {
             AddWaterFragment dialog = new AddWaterFragment();
-            dialog.show(getFragmentManager(),null);
+            dialog.show(getSupportFragmentManager(),null);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+    //NAVIGATION METHODS
 
     public void showMainWaterCoachFragment(){
         MainWaterCoachFragment fragment = new MainWaterCoachFragment();
-        FragmentManager manager = getFragmentManager();
+        FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.content_view,fragment).commit();
         current_screen = HOME;
     }
 
+    public void showSettingsWaterCoachFragment(){
+        SettingsWaterCoachFragment fragment = new SettingsWaterCoachFragment();
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.content_view,fragment).commit();
+        current_screen = SETTINGS;
+    }
+
+    public void showAboutFragment(){
+        AboutFragment fragment = new AboutFragment();
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.content_view,fragment).commit();
+        current_screen = ABOUT;
+    }
 }

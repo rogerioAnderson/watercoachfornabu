@@ -42,7 +42,7 @@ public class WaterDailyRecord {
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(System.currentTimeMillis());
             Date now = new Date(System.currentTimeMillis());
-            String currentTime = Util.formatHora(now);
+            String currentTime = Util.formatTime(now);
             String currentDate = Util.formatDate(now);
             String params[] = {Integer.toString(this.ml),currentTime,currentDate};
             db.execSQL(SQL_INSERT_RECORD,params);
@@ -68,13 +68,22 @@ public class WaterDailyRecord {
     }
 
 
-    static List<WaterDailyRecord> listOFDay(Context ctx) {
+    static List<WaterDailyRecord> listOFDay(Context ctx, Date date) {
         List<WaterDailyRecord> result = new ArrayList<WaterDailyRecord>();
         DBHelper helper = new DBHelper(ctx);
         SQLiteDatabase db = helper.getReadableDatabase();
         try{
-            Date now = new Date(System.currentTimeMillis());
-            Cursor cursor = db.rawQuery(SQL_LIST_CURRENT_DATE, new String[]{Util.formatDate(now)});
+
+
+            String param;
+            if(date==null){
+                Date now = new Date(System.currentTimeMillis());
+                param = Util.formatDate(now);
+            }else{
+                param = Util.formatDate(date);
+            }
+
+            Cursor cursor = db.rawQuery(SQL_LIST_CURRENT_DATE, new String[]{param});
             try{
                 if (cursor.moveToFirst()) {
                     do {
