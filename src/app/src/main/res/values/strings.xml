@@ -50,4 +50,8 @@
     <string name="action_history">history</string>
     <string name="imutable_past_information">Can not change past informations</string>
     <string name="action_statics">Statistics</string>
+    <string name="title_activity_water_consumption_chart">Water onsumption</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 </resources>

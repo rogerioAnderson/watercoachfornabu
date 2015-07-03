@@ -8,7 +8,8 @@ import android.util.Log;
 /**
  * Created by Rogerio on 17/05/2015.
  */
-public class DBHelper extends SQLiteOpenHelper{
+public class
+        DBHelper extends SQLiteOpenHelper{
 
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "NabuWaterCoach.db";
@@ -27,6 +28,9 @@ public class DBHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE);
+
+        return;
+
     }
 
     @Override

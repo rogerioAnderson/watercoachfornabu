@@ -2,6 +2,7 @@ package com.coded2.nabuwatercoach;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -149,27 +150,37 @@ public class MainWaterCoachFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==R.id.action_calendar){
 
-            FragmentManager fm = getFragmentManager();
-            Calendar now = Calendar.getInstance();
+        switch (item.getItemId()){
+            case R.id.action_calendar:
+                FragmentManager fm = getFragmentManager();
+                Calendar now = Calendar.getInstance();
 
-            CalendarDatePickerDialog  calendarDatePickerDialog = CalendarDatePickerDialog
-                    .newInstance(new CalendarDatePickerDialog.OnDateSetListener() {
-                                     @Override
-                                     public void onDateSet(CalendarDatePickerDialog calendarDatePickerDialog, int year, int month, int day) {
-                                         Calendar calendar = Calendar.getInstance();
-                                         calendar.set(year,month,day,0,0,0);
-                                         calendar.set(Calendar.MILLISECOND,0);
-                                         MainWaterCoachFragment.this.updateProgress(calendar.getTime());
-                                     }
-                                 }, now.get(Calendar.YEAR), now.get(Calendar.MONTH),
-                            now.get(Calendar.DATE));
-            calendarDatePickerDialog.setStyle(DialogFragment.STYLE_NORMAL,R.style.Base_Theme_AppCompat_Dialog);
-            calendarDatePickerDialog.show(fm, "date_picker");
-        }
+                CalendarDatePickerDialog  calendarDatePickerDialog = CalendarDatePickerDialog
+                        .newInstance(new CalendarDatePickerDialog.OnDateSetListener() {
+                                         @Override
+                                         public void onDateSet(CalendarDatePickerDialog calendarDatePickerDialog, int year, int month, int day) {
+                                             Calendar calendar = Calendar.getInstance();
+                                             calendar.set(year,month,day,0,0,0);
+                                             calendar.set(Calendar.MILLISECOND,0);
+                                             MainWaterCoachFragment.this.updateProgress(calendar.getTime());
+                                         }
+                                     }, now.get(Calendar.YEAR), now.get(Calendar.MONTH),
+                                now.get(Calendar.DATE));
+                calendarDatePickerDialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.Base_Theme_AppCompat_Dialog);
+                calendarDatePickerDialog.show(fm, "date_picker");
+                break;
+
+            case R.id.action_statistics:
+                Intent it = new Intent(getActivity(), WaterConsumptionChartActivity.class);
+                startActivity(it);
+                break;
+    }
+
+
         return super.onOptionsItemSelected(item);
     }
+
 
 
 

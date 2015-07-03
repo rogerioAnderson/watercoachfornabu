@@ -118,7 +118,7 @@ public class SplashActivity extends Activity {
     private void finishSplash() {
         Intent it = new Intent(SplashActivity.this, MainActivity.class);
         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(SplashActivity.this).edit();
-        editor.putBoolean(getString(R.string.pref_key_first_run), false).commit();
+        editor.putBoolean(getString(R.string.pref_key_first_run), false).apply();
         startActivity(it);
         finish();
     }

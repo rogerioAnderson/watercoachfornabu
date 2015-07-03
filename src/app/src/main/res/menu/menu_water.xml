@@ -8,7 +8,7 @@
         android:icon="@drawable/ic_calendar"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_statics"
+        android:id="@+id/action_statistics"
         android:orderInCategory="200"
         android:title="@string/action_statics"
         android:icon="@drawable/ic_action_statistics"
