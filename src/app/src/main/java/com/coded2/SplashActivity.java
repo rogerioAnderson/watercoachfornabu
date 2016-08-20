@@ -43,7 +43,8 @@ public class SplashActivity extends Activity {
             @Override
             public void run() {
                 try{
-                    intialize();
+                    //intialize();
+                    finishSplash();
                 }catch(Exception e){
                     Log.w(Constants.APPLICATION_TAG,e.getMessage());
                 }
